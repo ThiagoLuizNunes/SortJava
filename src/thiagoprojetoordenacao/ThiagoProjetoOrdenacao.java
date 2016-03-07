@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author fogo
+ * @author Thiago Luiz Pereira Nunes Matricula: 11414864
  */
 public class ThiagoProjetoOrdenacao {
 
@@ -63,7 +63,9 @@ public class ThiagoProjetoOrdenacao {
         }
         System.out.println("");
         
-        matriculados = new AlgorithmSort().bubblerSort(matriculados);
+        //matriculados = new AlgorithmSort().bubblerSort(matriculados);
+        //matriculados = new AlgorithmSort().selectionSort(matriculados);
+        matriculados = new AlgorithmSort().insertionSort(matriculados);
         for(int i=0; i<matriculados.size(); i++){
             System.out.println(matriculados.get(i).getNome()+ " "+matriculados.get(i).getMatricula());
         }
