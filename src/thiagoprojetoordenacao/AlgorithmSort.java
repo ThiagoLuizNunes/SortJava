@@ -63,10 +63,10 @@ public class AlgorithmSort {
         return array;
     }
     
-    public ArrayList insertionSort (ArrayList<Aluno> array){
+    public ArrayList insertionSort(ArrayList<Aluno> array){
         //Quantidade de trocas
         int changes = 0;
-        int i, x, menor;
+        int i, x;
         
         for(i=1; i<array.size(); i++){
             Aluno al = array.get(i);
@@ -77,6 +77,40 @@ public class AlgorithmSort {
             }
             array.set(x+1, al);
             changes++;
+        }
+        System.out.println("Número de trocas: " + changes);
+        return array;
+    }
+    
+    public ArrayList shellSort(ArrayList<Aluno> array){
+        
+        //Quantidade de trocas
+        int changes = 0;
+        int i, x, h = 1;
+        
+        while( h < array.size()){
+            h = h*3 +1;
+        }
+        
+        h = (h-1)/3;
+        
+        Aluno al = null;
+        
+        while(h > 0){
+            for(i=h; i<array.size(); i++){
+                
+                al = array.get(i);
+                x = i;
+                
+                while(x>=h && array.get(x - h).getMatricula() > al.getMatricula()){
+                    array.set(x, array.get(x - h));
+                    x = x - h;
+                    changes++;
+                }
+                array.set(x, al);
+                changes++;
+            }
+            h = h/3;
         }
         System.out.println("Número de trocas: " + changes);
         return array;

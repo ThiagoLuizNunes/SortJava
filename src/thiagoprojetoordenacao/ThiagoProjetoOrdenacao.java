@@ -30,8 +30,10 @@ public class ThiagoProjetoOrdenacao {
         ArrayList<Aluno> matriculados = new ArrayList();
         
         try {
-
-            br = new BufferedReader(new FileReader("/home/fogo/Desktop/alunos"));
+            String workingDir = System.getProperty("user.dir");
+            //System.out.println(workingDir);
+            //br = new BufferedReader(new FileReader("/home/fogo/Desktop/alunos"));
+            br = new BufferedReader(new FileReader(workingDir+"/matriculados.txt"));
             StringBuffer buffer = new StringBuffer();
             String line = br.readLine();
             
@@ -65,7 +67,8 @@ public class ThiagoProjetoOrdenacao {
         
         //matriculados = new AlgorithmSort().bubblerSort(matriculados);
         //matriculados = new AlgorithmSort().selectionSort(matriculados);
-        matriculados = new AlgorithmSort().insertionSort(matriculados);
+        //matriculados = new AlgorithmSort().insertionSort(matriculados);
+        matriculados = new AlgorithmSort().shellSort(matriculados);
         for(int i=0; i<matriculados.size(); i++){
             System.out.println(matriculados.get(i).getNome()+ " "+matriculados.get(i).getMatricula());
         }
