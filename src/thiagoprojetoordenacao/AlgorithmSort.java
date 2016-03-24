@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package thiagoprojetoordenacao;
 
 import java.util.ArrayList;
@@ -13,6 +9,15 @@ import java.util.ArrayList;
  */
 public class AlgorithmSort {
     
+    
+    public void printList(ArrayList<Aluno> array){
+        
+        int i;
+        
+        for(i=0; i<array.size(); i++){
+            System.out.print(String.valueOf(array.get(i).getMatricula())+" ");
+        }
+    }
     
     public ArrayList bubblerSort(ArrayList<Aluno> array){
         
@@ -28,11 +33,15 @@ public class AlgorithmSort {
                     
                     array.set(x+1, array.get(x));
                     array.set(x, aux);
-                    
+                    //printList(array);
+                    //System.out.println("");
                     changes++;
+                    //System.out.println("Changes: "+changes);
+                    //System.out.println("");
                 }
             }
         }
+        System.out.println("");
         System.out.println("Número de trocas: " + changes);
         return array;
     }
@@ -51,14 +60,20 @@ public class AlgorithmSort {
                 if(array.get(x).getMatricula() < menor){
                     
                     menor = array.get(x).getMatricula();
-                    
-                    Aluno aux = array.get(x);
-                    array.set(x, array.get(i));
-                    array.set(i, aux);
+                    //System.out.println("");
                     changes++;
+                    //System.out.println("Changes: "+changes);
+                    
+                    
                 }
+                Aluno aux = array.get(x);
+                array.set(x, array.get(i));
+                array.set(i, aux);
+                //printList(array);
+                //System.out.println("");
             }
         }
+        System.out.println("");
         System.out.println("Número de trocas: " + changes);
         return array;
     }
@@ -73,11 +88,16 @@ public class AlgorithmSort {
             
             for(x=i-1; x>=0 && array.get(x).getMatricula() > al.getMatricula(); x--){
                 array.set(x+1, array.get(x));
+                //printList(array);
+                //System.out.println("");
                 changes++;
+                //System.out.println("Changes: "+changes);
+                //System.out.println("");
             }
             array.set(x+1, al);
-            changes++;
+            //changes++;
         }
+        System.out.println("");
         System.out.println("Número de trocas: " + changes);
         return array;
     }
@@ -105,13 +125,18 @@ public class AlgorithmSort {
                 while(x>=h && array.get(x - h).getMatricula() > al.getMatricula()){
                     array.set(x, array.get(x - h));
                     x = x - h;
+                    //printList(array);
+                    //System.out.println("");
                     changes++;
+                    //System.out.println("Changes: "+changes);
+                    //System.out.println("");
                 }
                 array.set(x, al);
-                changes++;
+                
             }
             h = h/3;
         }
+        System.out.println("");
         System.out.println("Número de trocas: " + changes);
         return array;
     }

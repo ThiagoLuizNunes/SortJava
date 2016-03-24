@@ -15,7 +15,7 @@ public class Aluno {
     private int matricula;
     private String data;
 
-    public Aluno(String nome, int matricula, String data) {
+    public Aluno(int matricula, String nome, String data) {
         this.nome = nome;
         this.matricula = matricula;
         this.data = data;
